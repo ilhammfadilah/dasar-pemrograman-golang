@@ -75,4 +75,20 @@ func main() {
 			}
 		}
 
+	// penggunaan keyword fallthrough dalam switch
+	switch {
+	case nilai == 8:
+		fmt.Println("perfect!")
+	case (nilai < 8) && (nilai > 3):
+		fmt.Println("awesome")
+		fallthrough
+	case nilai < 5:
+		fmt.Println("you need to learn more")
+	default:
+		{
+			fmt.Println("not bad")
+			fmt.Println("you can be better")
+		}
+	}
+
 }
