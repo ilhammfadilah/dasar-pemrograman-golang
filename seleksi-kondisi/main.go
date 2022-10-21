@@ -27,4 +27,16 @@ func main() {
 		fmt.Printf("%.1f%s not bad! \n", percent, "%")
 	}
 
+	// selekse kondisi dengan keyword switch - case
+	var nilai = 6
+
+	switch nilai {
+	case 8:
+		fmt.Println("perfect!")
+	case 7:
+		fmt.Println("good!")
+	default:
+		fmt.Println("not bad")
+	}
+
 }
