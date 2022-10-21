@@ -62,4 +62,17 @@ func main() {
 		}
 	}
 
+	// switch dengan gaya if - else
+	switch {
+		case nilai == 8:
+			fmt.Println("perfect")
+		case (nilai < 8) && (nilai > 3):
+			fmt.Println("awesome")
+		default:
+			{
+				fmt.Println("not bad")
+				fmt.Println("you can be better")
+			}
+		}
+
 }
