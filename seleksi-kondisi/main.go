@@ -39,4 +39,14 @@ func main() {
 		fmt.Println("not bad")
 	}
 
+	// pemanfaatan case untuk banyak kondisi
+	switch nilai {
+	case 8:
+		fmt.Println("perfect")
+	case 7, 6, 5, 4:
+		fmt.Println("good")
+	default:
+		fmt.Println("not bad")
+	}
+
 }
