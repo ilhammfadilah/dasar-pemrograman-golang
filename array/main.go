@@ -29,4 +29,9 @@ func main() {
 	for i, fruit := range fruits {
 		fmt.Printf("element %d : %s \n", i, fruit)
 	}
+
+	// penggunaan variable _ dalam for -range
+	for _, fruit := range fruits {
+		fmt.Printf("element : %s \n", fruit)
+	}
 }
