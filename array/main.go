@@ -24,4 +24,9 @@ func main() {
 	for i := 0; i < len(fruits); i++ {
 		fmt.Printf("element %d : %s \n", i, fruits[i])
 	}
+
+	// perulangan element array dengan for - range
+	for i, fruit := range fruits {
+		fmt.Printf("element %d : %s \n", i, fruit)
+	}
 }
