@@ -14,4 +14,14 @@ func main() {
 		fmt.Println("Angka", n)
 		n++
 	}
+
+	// perulangan for tanpa argumen
+	for {
+		fmt.Println("Angka", n)
+
+		n++
+		if n == 29 {
+			break
+		}
+	}
 }
