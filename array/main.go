@@ -34,4 +34,11 @@ func main() {
 	for _, fruit := range fruits {
 		fmt.Printf("element : %s \n", fruit)
 	}
+
+	// alokasi element array dengan keyword make
+	var animals = make([]string, 2)
+	animals[0] = "cat"
+	animals[1] = "dog"
+
+	fmt.Println(animals)
 }
