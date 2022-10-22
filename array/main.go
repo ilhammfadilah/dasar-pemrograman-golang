@@ -19,4 +19,8 @@ func main() {
 	fmt.Println("numbers1", numbers1)
 	fmt.Println("numbers2", numbers2)
 
+	// perulangan element array dengan keyword for
+	for i := 0; i < len(fruits); i++ {
+		fmt.Printf("element %d : %s \n", i, fruits[i])
+	}
 }
