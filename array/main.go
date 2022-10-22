@@ -7,4 +7,10 @@ func main() {
 
 	fmt.Println("Jumlan element \t\t", len(fruits))
 	fmt.Println("Value of element \t", fruits)
+
+	// inisisalilasi nialai awal tanpa jumlah elemen
+	var numbers = [...] int {2, 8, 6, 1}
+	fmt.Println("Jumlan element \t\t", len(numbers))
+	fmt.Println("Value of element \t", numbers)
+
 }
