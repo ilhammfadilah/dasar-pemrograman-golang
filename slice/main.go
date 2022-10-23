@@ -63,4 +63,10 @@ func main() {
 	fmt.Println(dest)
 	fmt.Println(sour)
 	fmt.Println(ncopy)
+
+	// pengaksesan element slice dengan 3 indeks
+	var dFruits = bFruits[0:2:2]
+	fmt.Println(bFruits)
+	fmt.Println(len(dFruits))
+	fmt.Println(cap(dFruits))
 }
