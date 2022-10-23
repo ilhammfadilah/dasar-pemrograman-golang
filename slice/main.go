@@ -40,4 +40,8 @@ func main() {
 	fmt.Println(cap(aFruits))
 	fmt.Println(cap(bFruits))
 
+	// fungsi append
+	var cFruits = append(bFruits, "papaya")
+	fmt.Println(cFruits)
+
 }
