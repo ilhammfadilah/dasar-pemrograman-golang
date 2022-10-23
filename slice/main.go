@@ -44,4 +44,23 @@ func main() {
 	var cFruits = append(bFruits, "papaya")
 	fmt.Println(cFruits)
 
+	// fungsi copy
+	dst := make([]string, 3)
+	src := []string{"watermelon", "pinnaple", "orange", "apple"}
+
+	n := copy(dst, src)
+	fmt.Println(n)
+
+	dest := []string{
+		"potato",
+		"potato",
+		"potato",
+	}
+	sour := []string{"watermelon", "pinnaple"}
+
+	ncopy := copy(dest, sour)
+
+	fmt.Println(dest)
+	fmt.Println(sour)
+	fmt.Println(ncopy)
 }
