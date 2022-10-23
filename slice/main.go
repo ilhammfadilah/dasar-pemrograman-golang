@@ -33,5 +33,7 @@ func main() {
 	fmt.Println("aaFruits: ",aaFruits)
 	fmt.Println("baFruits: ",baFruits)
 
+	// fungsi len digunakan untuk menghitung jumlah element slice yang ada
+	fmt.Println(len(fruits))
 
 }
