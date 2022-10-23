@@ -36,4 +36,8 @@ func main() {
 	// fungsi len digunakan untuk menghitung jumlah element slice yang ada
 	fmt.Println(len(fruits))
 
+	// fungsi cap
+	fmt.Println(cap(aFruits))
+	fmt.Println(cap(bFruits))
+
 }
