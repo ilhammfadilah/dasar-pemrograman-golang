@@ -43,6 +43,24 @@ func main() {
 	fmt.Println(pesan)
 
 	yourHobbies("ilham", "sleeping", "eating")
+
+	var getMinMax = func(n []int)(int, int) {
+		var min, max int
+		for i, e := range n {
+			switch {
+			case i == 0:
+				max, min = e, e
+			case e > max:
+				max = e
+			case e < min:
+				min = e
+			}
+		}
+		return min, max
+	}
+
+	var min, max = getMinMax(numbers)
+	fmt.Printf("data : %v\n min : %v\n max : %v\n", numbers, min, max)
 }
 
 func printMessage(message string, arr []string) {
@@ -93,3 +111,12 @@ func yourHobbies(name string, hobbies ...string) {
 	fmt.Printf("Hello, my name is: %s \n", name)
 	fmt.Printf("My hobbies are: %s \n", hobbiesAsString)
 }
+
+// 	CLOSURE
+/*
+	closure adalah sebuah fungsi yang bisa disimpan kedalam variabel. 
+	closeure merupakan anonymous function. bisa dimanfaatkan untuk membungkus
+	suatu proses yang hanya digunakan satu kali atau dalam blok tertentu saja.
+*/
+
+
