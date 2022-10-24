@@ -98,6 +98,19 @@ func main() {
 	fmt.Println("found \t:", howMany)
 	fmt.Println("value \t:", theNumber)
 
+	fmt.Println("===== FUNGSI SEBAGAI PARAMETER =====")
+	var data = []string{"Ilham", "Muhamad", "Fadilah"}
+	var dataContainsA = filter(data, func(each string) bool{
+		return strings.Contains(each, "a")
+	})
+	var dataLength5 = filter(data, func(each string) bool {
+		return len(each) == 5
+	})
+
+	fmt.Println("Data asli : \t", data)
+	fmt.Println("filter ada huruf \"a\"\t:", dataContainsA)
+	fmt.Println("filter jumlah huruf \"5\"\t:", dataLength5)
+
 }
 
 // closure sebagai nilai kembalian
@@ -162,6 +175,15 @@ func yourHobbies(name string, hobbies ...string) {
 	fmt.Printf("My hobbies are: %s \n", hobbiesAsString)
 }
 
-
+// fungsi sebagai parameter
+func filter(data []string, callback func(string) bool,) []string {
+	var result []string
+	for _, each := range data {
+		if filtered := callback(each); filtered {
+			result = append(result, each)
+		}
+	}
+	return result
+}
 
 
