@@ -33,4 +33,13 @@ func main() {
 	// Menghapus Item Map
 	delete(egg, "april")
 	fmt.Println(egg)
+
+	// Deteksi Keberadaan Item Dengan Key Tertentu
+	var value, isExist = egg["februari"]
+
+	if isExist {
+		fmt.Println(value)
+	} else {
+		fmt.Println("item is not exist")
+	}
 }
