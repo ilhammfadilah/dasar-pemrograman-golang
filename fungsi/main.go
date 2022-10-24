@@ -36,6 +36,13 @@ func main() {
 	var avg = calculateVariadic(2,4,3,5,4,3,3,5,5,3)
 	var msg = fmt.Sprintf("rata - rata : %.2f", avg)
 	fmt.Println(msg)
+
+	var numbers = []int{2,4,3,5,4,3,3,5,5,3}
+	var ratarata = calculateVariadic(numbers...)
+	var pesan = fmt.Sprintf("rata - rata : %.2f", ratarata)
+	fmt.Println(pesan)
+
+	yourHobbies("ilham", "sleeping", "eating")
 }
 
 func printMessage(message string, arr []string) {
@@ -79,4 +86,10 @@ func calculateVariadic(numbers ...int) float64 {
 
 	var avg = float64(total) / float64(len(numbers))
 	return avg
+}
+
+func yourHobbies(name string, hobbies ...string) {
+	var hobbiesAsString = strings.Join(hobbies, ", ")
+	fmt.Printf("Hello, my name is: %s \n", name)
+	fmt.Printf("My hobbies are: %s \n", hobbiesAsString)
 }
