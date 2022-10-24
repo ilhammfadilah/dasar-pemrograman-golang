@@ -44,6 +44,13 @@ func main() {
 
 	yourHobbies("ilham", "sleeping", "eating")
 
+/*
+	CLOSURE
+	closure adalah sebuah fungsi yang bisa disimpan kedalam variabel. 
+	closeure merupakan anonymous function. bisa dimanfaatkan untuk membungkus
+	suatu proses yang hanya digunakan satu kali atau dalam blok tertentu saja.
+*/
+
 	var getMinMax = func(n []int)(int, int) {
 		var min, max int
 		for i, e := range n {
@@ -61,6 +68,26 @@ func main() {
 
 	var min, max = getMinMax(numbers)
 	fmt.Printf("data : %v\n min : %v\n max : %v\n", numbers, min, max)
+
+/*
+	Imediately-Invoke Function Expression (IIFE)
+	closure ini di eksekusi langsung saat deklarasinya. bisa digunakan untuk membungkus proses yang hanya dilakukan satu sesekali, bisa mengembalikan nilai, bisa juga tidak.
+*/
+
+	var newNumbers = func(min int) []int {
+		var r []int
+		for _, e := range numbers {
+			if e < min {
+				continue
+			}
+			r = append(r, e)
+		}
+		return r
+	}(3)
+
+	fmt.Println("original numbers :", numbers)
+	fmt.Println("filtered numbers :", newNumbers)
+
 }
 
 func printMessage(message string, arr []string) {
@@ -112,11 +139,6 @@ func yourHobbies(name string, hobbies ...string) {
 	fmt.Printf("My hobbies are: %s \n", hobbiesAsString)
 }
 
-// 	CLOSURE
-/*
-	closure adalah sebuah fungsi yang bisa disimpan kedalam variabel. 
-	closeure merupakan anonymous function. bisa dimanfaatkan untuk membungkus
-	suatu proses yang hanya digunakan satu kali atau dalam blok tertentu saja.
-*/
+
 
 
