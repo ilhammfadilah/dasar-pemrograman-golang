@@ -13,4 +13,8 @@ func main() {
 
 	fmt.Println("januari", chicken["januari"])
 	fmt.Println("februari", chicken["februari"])
+
+	// inisialisasi nilai map
+	var chicken1 = map[string]int{"januari": 50, "februari": 40}
+	fmt.Println(chicken1["februari"])
 }
