@@ -42,4 +42,15 @@ func main() {
 	} else {
 		fmt.Println("item is not exist")
 	}
+
+	// Kombinasi Slice & Map
+	var ayam = []map[string]string{
+		map[string]string{"name": "ayam biru", "gender": "male"},
+		map[string]string{"name": "ayam merah", "gender": "female"},
+		map[string]string{"name": "ayam kuning", "gender": "male"},
+	}
+
+	for _, hayam := range ayam {
+		fmt.Println(hayam["gender"], hayam["name"])
+	}
 }
