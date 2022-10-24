@@ -88,6 +88,29 @@ func main() {
 	fmt.Println("original numbers :", numbers)
 	fmt.Println("filtered numbers :", newNumbers)
 
+	var maksimal = 3
+	var howMany, getNumbers = findMax(numbers, maksimal)
+	var theNumber = getNumbers()
+
+	fmt.Println("numbers :\n", numbers)
+	fmt.Printf("find \t : %d \n", maksimal)
+
+	fmt.Println("found \t:", howMany)
+	fmt.Println("value \t:", theNumber)
+
+}
+
+// closure sebagai nilai kembalian
+func findMax(numbers []int, max int) (int, func() []int) {
+	var res []int
+	for _, e := range numbers {
+		if e <= max {
+			res = append(res, e)
+		}
+	}
+	return len(res), func() []int {
+		return res
+	}
 }
 
 func printMessage(message string, arr []string) {
