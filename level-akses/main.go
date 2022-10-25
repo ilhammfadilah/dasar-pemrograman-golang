@@ -1,8 +1,8 @@
 package main
-// import (
-// 	. "level-akses/library"
-// 	f "fmt"
-// )
+import (
+	. "level-akses/library"
+	f "fmt"
+)
 
 func main() {
 	// library.SayHello("ilham")
@@ -16,5 +16,8 @@ func main() {
 	// f.Println("student 2 name: ", student2.Name)
 	// f.Println("student 2 grade: ", student2.Grade)
 
-	sayHello("ilham")
+	// sayHello("ilham")
+
+	f.Printf("Name : %s \n", Student.Name)
+	f.Printf("Grade : %d \n", Student.Grade)
 }
