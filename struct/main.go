@@ -43,7 +43,7 @@ func main() {
 	var handphone1 = struct {
 		handphone
 		discount int
-	}{}
+	}{} // <-- anonymous struct
 
 	handphone1.handphone = handphone{brand: "iPhone", price: 500}
 	handphone1.discount = 99
@@ -51,12 +51,23 @@ func main() {
 	fmt.Println("brand handphone :", handphone1.brand)
 	fmt.Println("price handphone :", handphone1.price)
 	fmt.Println("discount handphone :", handphone1.discount)
+
+	// kombinasi slice dengan struct
+	var allHandphone = []handphone{
+		{brand: "Google Pixel", price: 100},
+		{brand: "iPhone", price: 200},
+		{brand: "Samsung", price: 300},
+	}
+
+	for _, hp := range allHandphone {
+		fmt.Println(hp.brand, " harganya ", hp.price)
+	}
 }
 
 type student struct {
 	name string
 	grade int
-	person
+	person // <-- embedded struct
 }
 
 type person struct {
