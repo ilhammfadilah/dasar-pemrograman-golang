@@ -17,4 +17,22 @@ func main() {
 
 	fmt.Println("vairable B (value):", *numberB)
 	fmt.Println("vairable B (address):", numberB)
+
+	numberA = 7
+
+	fmt.Println("variable A (value): ", numberA)
+	fmt.Println("variable A (address): ", &numberA)
+
+	fmt.Println("vairable B (value):", *numberB)
+	fmt.Println("vairable B (address):", numberB)
+
+	var number = 4
+	fmt.Println("before :", number)
+
+	change(&number, 10)
+	fmt.Println("after :", number)
+}
+
+func change(original *int, value int) {
+	*original = value
 }
