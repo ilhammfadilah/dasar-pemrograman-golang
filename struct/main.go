@@ -62,6 +62,20 @@ func main() {
 	for _, hp := range allHandphone {
 		fmt.Println(hp.brand, " harganya ", hp.price)
 	}
+
+	// inisialisasi slice anonymous struct
+	var pegawai = []struct{
+		person
+		gaji int
+	}{
+		{person: person{22}, gaji: 5},
+		{person: person{21}, gaji: 4},
+		{person: person{20}, gaji: 3},
+	}
+
+	for _, pegawai := range pegawai {
+		fmt.Println("usia pegawai", pegawai.age, " gaji: ", pegawai.gaji)
+	}
 }
 
 type student struct {
