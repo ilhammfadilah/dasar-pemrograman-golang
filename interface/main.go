@@ -1,4 +1,5 @@
 package main
+
 import "fmt"
 import "math"
 
@@ -34,6 +35,38 @@ func (p persegi) keliling() float64 {
 	return p.sisi * 4
 }
 
+// embedded interface
+
+type hitung2d interface {
+	luas() float64
+	keliling() float64
+}
+
+type hitung3d interface {
+	volume() float64
+}
+
+type menghitung interface {
+	hitung2d
+	hitung3d
+}
+
+type kubus struct {
+	sisi float64
+}
+
+func (k *kubus) volume() float64 {
+	return math.Pow(k.sisi, 3)
+}
+
+func (k *kubus) luas() float64 {
+	return math.Pow(k.sisi, 2) * 6
+}
+
+func (k *kubus) keliling() float64 {
+	return k.sisi * 12
+}
+
 func main() {
 	var bangunDatar hitung
 	
@@ -46,5 +79,12 @@ func main() {
 	fmt.Println("===== lingkaran")
 	fmt.Println("luas:", bangunDatar.luas())
 	fmt.Println("keliling:", bangunDatar.keliling())
-	fmt.Println("jari-jari :", bangunDatar.(lingkaran).jariJari())
+	fmt.Println("jari-jari :", bangunDatar.(lingkaran).jariJari()) // <-- belum paham
+
+	// embedded interface
+	var bangunRuang = &kubus{4}
+	fmt.Println("===== kubus")
+	fmt.Println("luas :", bangunRuang.luas())
+	fmt.Println("keliling :", bangunRuang.keliling())
+	fmt.Println("volume :", bangunRuang.volume())
 }
