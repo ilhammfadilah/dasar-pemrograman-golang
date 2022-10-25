@@ -19,10 +19,14 @@ func main() {
 	fmt.Println("name :", s2.name)
 	fmt.Println("grade :", s2.grade)
 
-	var s2 = student{name: "fadilah", grade: 9}
-	var s3 *student = &s2
-	fmt.Println("student 2 name: ", s2.name)
+	var s3 = student{name: "fadilah", grade: 9}
+	var s4 *student = &s3
 	fmt.Println("student 3 name: ", s3.name)
+	fmt.Println("student 4 name: ", s4.name)
+
+	s3.name = "agung"
+	fmt.Println("student 3 name: ", s3.name)
+	fmt.Println("student 4 name: ", s4.name)
 }
 
 type student struct {
