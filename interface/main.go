@@ -87,4 +87,19 @@ func main() {
 	fmt.Println("luas :", bangunRuang.luas())
 	fmt.Println("keliling :", bangunRuang.keliling())
 	fmt.Println("volume :", bangunRuang.volume())
+
+	// interface kosong
+	var secret interface{}
+	secret = "ilham"
+	
+	fmt.Println(secret)
+
+	secret = []string{"golang", "javascript", "php"}
+	fmt.Println(secret)
+
+	secret = [3]int{1, 2, 3}
+	fmt.Println(secret)
+
+	secret = lingkaran{}
+	fmt.Println(secret)
 }
