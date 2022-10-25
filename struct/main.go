@@ -40,6 +40,17 @@ func main() {
 	fmt.Println("student 5 age: ",s5.person.age)
 	fmt.Println("student 5 grade: ",s5.grade)
 
+	var handphone1 = struct {
+		handphone
+		discount int
+	}{}
+
+	handphone1.handphone = handphone{brand: "iPhone", price: 500}
+	handphone1.discount = 99
+
+	fmt.Println("brand handphone :", handphone1.brand)
+	fmt.Println("price handphone :", handphone1.price)
+	fmt.Println("discount handphone :", handphone1.discount)
 }
 
 type student struct {
@@ -50,4 +61,9 @@ type student struct {
 
 type person struct {
 	age int
+}
+
+type handphone struct {
+	brand string
+	price int
 }
