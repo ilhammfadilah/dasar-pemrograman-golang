@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
-import "math"
+import (
+	"fmt"
+	"math"
+	"strings"
+)
 
 type hitung interface {
 	luas() float64
@@ -69,7 +72,7 @@ func (k *kubus) keliling() float64 {
 
 func main() {
 	var bangunDatar hitung
-	
+
 	bangunDatar = persegi{10.0}
 	fmt.Println("===== persegi")
 	fmt.Println("luas:", bangunDatar.luas())
@@ -91,7 +94,7 @@ func main() {
 	// interface kosong
 	var secret interface{}
 	secret = "ilham"
-	
+
 	fmt.Println(secret)
 
 	secret = []string{"golang", "javascript", "php"}
@@ -102,4 +105,22 @@ func main() {
 
 	secret = lingkaran{}
 	fmt.Println(secret)
+
+	// pada go v1.18 interface kosong bisa menggunakan keyword any
+	var data map[string]any
+	data = map[string]any{
+		"name":  "ilham",
+		"grade": 9,
+	}
+
+	fmt.Println(data)
+
+	secret = 2
+	var nomor = secret.(int) * 10
+	fmt.Println(secret, "multiplied by 10 is", nomor)
+
+	secret = []string{"apple", "orange", "banana"}
+	var fruits = strings.Join(secret.([]string), ", ")
+	fmt.Println(fruits, "is my favorite fruits")
+
 }
