@@ -11,6 +11,23 @@ type hitung interface {
 	keliling() float64
 }
 
+type cetak interface {
+	getString() string
+}
+
+type mahasiswa struct {
+	nama string
+	jmlHuruf int
+}
+
+func (m mahasiswa) getString() string {
+	return m.nama
+}
+
+func (m mahasiswa) getLength() int {
+	return m.jmlHuruf
+}
+
 type lingkaran struct {
 	diameter float64
 }
@@ -70,6 +87,12 @@ func (k *kubus) keliling() float64 {
 	return k.sisi * 12
 }
 
+// Casting Variabel Interface Kosong Ke Objek Pointer
+type person struct {
+	name string
+	age	int
+}
+
 func main() {
 	var bangunDatar hitung
 
@@ -123,4 +146,11 @@ func main() {
 	var fruits = strings.Join(secret.([]string), ", ")
 	fmt.Println(fruits, "is my favorite fruits")
 
+	var tampilNama cetak
+	tampilNama = mahasiswa{"ilham", 9}
+	fmt.Println(tampilNama.getString())
+
+	var rahasia interface{} = &person{name: "ilham", age: 22}
+	var name = rahasia.(*person).name
+	fmt.Println(name)
 }
