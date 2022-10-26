@@ -11,8 +11,12 @@ dibuat dengan menggunakan kombinasi keyword make dan chain
 */
 
 package main
-import "fmt"
-import "runtime"
+
+import (
+	"fmt"
+	"runtime"
+)
+
 func main() {
 	runtime.GOMAXPROCS(2)
 	var messages = make(chan string) // cahnnel bertipe string
@@ -27,11 +31,11 @@ func main() {
 	go sayHelloTo("agung nugraha")
 	go sayHelloTo("putri mutiara")
 
-	var message1 = <- messages
+	var message1 = <-messages
 	fmt.Println(message1)
-	var message2 = <- messages
+	var message2 = <-messages
 	fmt.Println(message2)
-	var message3 = <- messages
+	var message3 = <-messages
 	fmt.Println(message3)
 
 	for _, each := range []string{"hatsune", "miku", "moona"} {
