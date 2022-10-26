@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
 	defer fmt.Println("selamat datang")
@@ -8,6 +11,8 @@ func main() {
 
 	pilihMakanan("batagor")
 	pilihMakanan("seblak")
+
+	os.Exit(1)
 }
 
 func pilihMakanan(nama string) {
