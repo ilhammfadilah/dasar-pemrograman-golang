@@ -33,4 +33,19 @@ func main() {
 	fmt.Println(message2)
 	var message3 = <- messages
 	fmt.Println(message3)
+
+	for _, each := range []string{"hatsune", "miku", "moona"} {
+		go func(who string) {
+			var data = fmt.Sprintf("hello %s ", who)
+			messages <- data
+		}(each)
+	}
+
+	for i := 0; i < 3; i++ {
+		printMessage(messages)
+	}
+}
+
+func printMessage(what chan string) {
+	fmt.Println(<-what)
 }
