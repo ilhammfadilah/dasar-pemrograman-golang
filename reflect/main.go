@@ -22,4 +22,10 @@ func main() {
 	if reflectValue.Kind() == reflect.Int {
 		fmt.Println("nilai variabel :", reflectValue.Int())
 	}
+
+	// Pengaksesan Nilai Dalam Bentuk interface{}
+	fmt.Println("nilai variabel : ", reflectValue.Interface())
+
+	var nilai = reflectValue.Interface().(int)
+	fmt.Println(nilai)
 }
