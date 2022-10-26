@@ -153,4 +153,15 @@ func main() {
 	var rahasia interface{} = &person{name: "ilham", age: 22}
 	var name = rahasia.(*person).name
 	fmt.Println(name)
+
+	// Kombinasi Slice, map , dan interface{}
+	var people = []map[string]interface{}{
+		{"name": "ilham", "age": 22},
+		{"name": "muhamad", "age": 21},
+		{"name": "fadilah", "age": 20},
+	}
+
+	for _, each := range people {
+		fmt.Println(each["name"], " age is ", each["age"])
+	}
 }
