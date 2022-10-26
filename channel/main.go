@@ -15,13 +15,14 @@ import "fmt"
 import "runtime"
 func main() {
 	runtime.GOMAXPROCS(2)
-	var messages = make(chan string)
+	var messages = make(chan string) // cahnnel bertipe string
 
-	var sayHelloTo = func(who string) {
+	var sayHelloTo = func(who string) { // closure
 		var data = fmt.Sprintf("hello, %s ", who)
-		messages <- data
+		messages <- data // pesan di kirim ke messages
 	}
 
+	// di eksekusi sebagai goroutine
 	go sayHelloTo("ilham muhamad fadilah")
 	go sayHelloTo("agung nugraha")
 	go sayHelloTo("putri mutiara")
