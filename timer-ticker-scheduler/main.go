@@ -24,13 +24,32 @@ func main() {
 	// fmt.Println("selesai")
 
 	// Fungsi time.AfterFunc()
-	var ch = make(chan bool)
-	time.AfterFunc(4*time.Second, func() {
-		fmt.Println("Expired")
-		// ch <- true
-	})
+	// var ch = make(chan bool)
+	// time.AfterFunc(4*time.Second, func() {
+	// 	fmt.Println("Expired")
+	// 	// ch <- true
+	// })
 
-	fmt.Println("start")
-	<-ch
-	fmt.Println("finish")
+	// fmt.Println("start")
+	// <-ch
+	// fmt.Println("finish")
+
+	// Scheduler Menggunakan Ticker
+	done := make(chan bool)
+	ticker := time.NewTicker(time.Second)
+
+	go func() {
+		time.Sleep(10 * time.Second)
+		done <- true
+	}()
+
+	for {
+		select {
+		case <-done:
+			ticker.Stop()
+			return
+		case t := <-ticker.C:
+			fmt.Println("Hello !!", t)
+		}
+	}
 }
