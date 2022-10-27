@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -35,21 +36,53 @@ func main() {
 	// fmt.Println("finish")
 
 	// Scheduler Menggunakan Ticker
-	done := make(chan bool)
-	ticker := time.NewTicker(time.Second)
 
-	go func() {
-		time.Sleep(10 * time.Second)
-		done <- true
-	}()
+	// done := make(chan bool)
+	// ticker := time.NewTicker(time.Second)
 
-	for {
-		select {
-		case <-done:
-			ticker.Stop()
-			return
-		case t := <-ticker.C:
-			fmt.Println("Hello !!", t)
-		}
+	// go func() {
+	// 	time.Sleep(10 * time.Second)
+	// 	done <- true
+	// }()
+
+	// for {
+	// 	select {
+	// 	case <-done:
+	// 		ticker.Stop()
+	// 		return
+	// 	case t := <-ticker.C:
+	// 		fmt.Println("Hello !!", t)
+	// 	}
+	// }
+
+	// Kombinasi Timer & Goroutine
+
+	var timeout = 5
+	var ch = make(chan bool)
+
+	go timer(timeout, ch)
+	go watcher(timeout, ch)
+
+	var input string
+	fmt.Print("what is 725/25 ? ")
+	fmt.Scan(&input)
+
+	if input == "29" {
+		fmt.Println("the answer was right!")
+	} else {
+		fmt.Println("the answer was wrong!")
 	}
+
+}
+
+func timer(timeout int, ch chan<- bool) {
+	time.AfterFunc(time.Duration(timeout)*time.Second, func() {
+		ch <- true
+	})
+}
+
+func watcher(timeout int, ch <-chan bool) {
+	<-ch
+	fmt.Println("\n time out ! no answer more than ", timeout, "seccond")
+	os.Exit(0)
 }
