@@ -39,4 +39,12 @@ func main() {
 
 	var dateS2 = tgl.Format(time.RFC3339)
 	fmt.Println("dateS2", dateS2)
+
+	// Handle Error Parsing time.Time
+	var tgl2, err = time.Parse("06 Jan 15", "02 Sep 15 08:00 WIB")
+	if err != nil {
+		fmt.Println("error ", err.Error())
+		return
+	}
+	fmt.Println(tgl2)
 }
