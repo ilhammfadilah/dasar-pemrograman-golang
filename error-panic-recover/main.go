@@ -7,7 +7,32 @@ import (
 )
 
 func main() {
-	defer catch()
+	// defer func() {
+	// 	if r := recover(); r != nil {
+	// 		fmt.Println("Panic occured", r)
+	// 	} else {
+	// 		fmt.Println("Application running perfectly")
+	// 	}
+	// }()
+
+	// panic("Some error happen")
+
+	data := []string{"superman", "aquaman", "wonder women"}
+
+	for _, each := range data {
+		func() {
+			// reccover untuk IIFE
+			defer func() {
+				if r := recover(); r != nil {
+					fmt.Println("Pannic orrure on looping", each, "| message:", r)
+				} else {
+					fmt.Println("Application running perfectly")
+				}
+			}()
+
+			panic("some error happen")
+		}()
+	}
 
 	// var input string
 	// fmt.Print("masukan nomor : ")
