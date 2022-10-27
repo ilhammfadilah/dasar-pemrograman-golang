@@ -7,6 +7,8 @@ import (
 )
 
 func main() {
+	defer catch()
+
 	// var input string
 	// fmt.Print("masukan nomor : ")
 	// fmt.Scanln(&input)
@@ -28,7 +30,11 @@ func main() {
 	if valid, err := validate(nama); valid {
 		fmt.Println("halo ", nama)
 	} else {
-		fmt.Println(err.Error())
+		// fmt.Println(err.Error())
+
+		// panic
+		panic(err.Error())
+		fmt.Println("end")
 	}
 }
 
@@ -38,4 +44,13 @@ func validate(nama string) (bool, error) {
 		return false, errors.New("tidak boleh kosong")
 	}
 	return true, nil
+}
+
+// recover
+func catch() {
+	if r := recover(); r != nil {
+		fmt.Println("Error occured", r)
+	} else {
+		fmt.Println("Application running perfectly")
+	}
 }
