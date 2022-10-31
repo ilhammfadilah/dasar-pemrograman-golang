@@ -30,4 +30,12 @@ func main() {
 
 	var str2 = regex.ReplaceAllString(text, "potato")
 	fmt.Println(str2)
+
+	var str3 = regex.ReplaceAllStringFunc(text, func(each string) string {
+		if each == "burger" {
+			return "potato"
+		}
+		return each
+	})
+	fmt.Println(str3)
 }
