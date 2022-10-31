@@ -38,4 +38,8 @@ func main() {
 		return each
 	})
 	fmt.Println(str3)
+
+	var regex2, _ = regexp.Compile(`[a-b]+`)
+	var str4 = regex2.Split(text, -1)
+	fmt.Printf("%#v \n", str4)
 }
