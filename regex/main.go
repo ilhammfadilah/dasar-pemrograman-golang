@@ -24,4 +24,7 @@ func main() {
 
 	var str = regex.FindString(text)
 	fmt.Println(str)
+
+	var idx = regex.FindStringIndex(text)
+	fmt.Println(idx)
 }
