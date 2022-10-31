@@ -21,4 +21,7 @@ func main() {
 
 	var isMatch = regex.MatchString(text)
 	fmt.Println(isMatch)
+
+	var str = regex.FindString(text)
+	fmt.Println(str)
 }
