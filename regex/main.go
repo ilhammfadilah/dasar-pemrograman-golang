@@ -18,4 +18,7 @@ func main() {
 
 	var res2 = regex.FindAllString(text, -1)
 	fmt.Printf("%v \n", res2)
+
+	var isMatch = regex.MatchString(text)
+	fmt.Println(isMatch)
 }
