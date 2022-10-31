@@ -27,4 +27,7 @@ func main() {
 
 	var idx = regex.FindStringIndex(text)
 	fmt.Println(idx)
+
+	var str2 = regex.ReplaceAllString(text, "potato")
+	fmt.Println(str2)
 }
