@@ -1,0 +1,2 @@
+hallo
+ayo belajar golang
