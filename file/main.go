@@ -33,7 +33,8 @@ func createFile() {
 func main() {
 	// createFile()
 	// writeFile()
-	readFile()
+	// readFile()
+	deleteFile()
 }
 
 func writeFile() {
@@ -90,4 +91,13 @@ func readFile() {
 
 	fmt.Println("==> file berhasil dibaca")
 	fmt.Println(string(text))
+}
+
+func deleteFile() {
+	var err = os.Remove(path)
+	if isError(err) {
+		return
+	}
+
+	fmt.Println("==> file berhasil dihapus")
 }
