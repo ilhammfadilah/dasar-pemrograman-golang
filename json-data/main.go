@@ -45,4 +45,13 @@ func main() {
 
 	fmt.Println("user 1: ", data2[0].FullName)
 	fmt.Println("user 1: ", data2[0].Age)
+
+	var object = []User{{"Ilham muhamad fadilah", 22}, {"agung nugraha", 32}}
+	var jsonData3, err1 = json.Marshal(object)
+	if err1 != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	var jsonString3 = string(jsonData3)
+	fmt.Println(jsonString3)
 }
