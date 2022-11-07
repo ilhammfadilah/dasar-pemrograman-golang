@@ -30,4 +30,19 @@ func main() {
 
 	fmt.Println("Name: ", data1["Name"])
 	fmt.Println("Age: ", data1["Age"])
+
+	var jsonString2 = `[
+		{"Name": "ilham muhamad fadilah", "Age": 22},	
+		{"Name": "agung nugraha", "Age": 32}	
+	]`
+
+	var data2 []User
+	var error = json.Unmarshal([]byte(jsonString2), &data2)
+	if error != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
+	fmt.Println("user 1: ", data2[0].FullName)
+	fmt.Println("user 1: ", data2[0].Age)
 }
