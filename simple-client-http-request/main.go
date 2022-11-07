@@ -1,9 +1,11 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/url"
 )
 
 var baseURL = "http://localhost:8080"
@@ -14,14 +16,28 @@ type student struct {
 	Grade int
 }
 
-func fetchUsers() ([]student, error) {
+func fetchUsers(ID string) ([]student, error) {
 	var err error
 	var client = &http.Client{}
 	var data []student
-	request, err := http.NewRequest("POST", baseURL+"/users", nil)
+
+	// with form data
+	var param = url.Values{}
+	param.Set("id", ID)
+	var payload = bytes.NewBufferString(param.Encode())
+
+	// request, err := http.NewRequest("POST", baseURL+"/users", nil)
+	// if err != nil {
+	// 	return nil, err
+	// }
+
+	// with form data
+	request, err := http.NewRequest("POST", baseURL+"/user", payload)
 	if err != nil {
-		return nil, err
+		return data, nil
 	}
+	request.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
 	response, err := client.Do(request)
 	if err != nil {
 		return nil, err
@@ -35,12 +51,21 @@ func fetchUsers() ([]student, error) {
 }
 
 func main() {
-	var users, err = fetchUsers()
+	// var users, err = fetchUsers()
+	// if err != nil {
+	// 	fmt.Println("Error!", err.Error())
+	// 	return
+	// }
+	// for _, each := range users {
+	// 	fmt.Printf("ID: %s\t Name: %s\t Grade: %d\n", each.ID, each.Name, each.Grade)
+	// }
+
+	// with form data
+	var user1, err = fetchUsers("ID001")
 	if err != nil {
 		fmt.Println("Error!", err.Error())
 		return
 	}
-	for _, each := range users {
-		fmt.Printf("ID: %s\t Name: %s\t Grade: %d\n", each.ID, each.Name, each.Grade)
-	}
+
+	fmt.Println("ID : %s \t Name : %s\t Grade : %d\n", user1.ID, user1.Name, user1.Grade)
 }
