@@ -24,4 +24,10 @@ func main() {
 
 	fmt.Println("user: ", data.FullName)
 	fmt.Println("age: ", data.Age)
+
+	var data1 map[string]interface{}
+	json.Unmarshal(jsonData, &data1)
+
+	fmt.Println("Name: ", data1["Name"])
+	fmt.Println("Age: ", data1["Age"])
 }
