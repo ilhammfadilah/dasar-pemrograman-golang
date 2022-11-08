@@ -29,3 +29,9 @@ func TestHitungKeliling(t *testing.T) {
 		t.Errorf("SALAH! harusnya %.2f", kelilingSeharusnya)
 	}
 }
+
+func BenchmarkHitungLuas(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		kubus.Luas()
+	}
+}
