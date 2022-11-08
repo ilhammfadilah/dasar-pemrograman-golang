@@ -84,7 +84,34 @@ func sqlQueryRow() {
 	fmt.Printf("name : %s\ngrade : %d\n", result.name, result.grade)
 }
 
+func sqlPrepare() {
+	db, err := connect()
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
+	defer db.Close()
+
+	stmt, err := db.Prepare("select name, grade from tb_student where id = ?")
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
+	var result1 = student{}
+	var result2 = student{}
+	var result3 = student{}
+	stmt.QueryRow("B001").Scan(&result1.name, &result1.grade)
+	fmt.Printf("name : %s \ngrade : %d\n", result1.name, result1.grade)
+	stmt.QueryRow("B002").Scan(&result2.name, &result2.grade)
+	fmt.Printf("name : %s \ngrade : %d\n", result2.name, result2.grade)
+	stmt.QueryRow("B003").Scan(&result3.name, &result3.grade)
+	fmt.Printf("name : %s \ngrade : %d\n", result3.name, result3.grade)
+}
+
 func main() {
 	// sqlQuery()
-	sqlQueryRow()
+	// sqlQueryRow()
+	sqlPrepare()
 }
