@@ -32,6 +32,12 @@
     <td>Affiliation</td>
     <td>: {{.Info.Affiliation}} ({{.Info.GetAffiliationDetailInfo}})</td>
   </tr>
+  {{with .Info}}
+  <tr>
+    <td>Address:</td>
+    <td>: {{ .Address }}</td>
+  </tr>
+  {{end}}
 </table>
 </body>
 </html>
