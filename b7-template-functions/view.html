@@ -19,5 +19,10 @@
   <p>
     {{printf "%s because I'm %s" "You know why?" "Batman!"}}
     </p>
+    <p>
+      Batman have many friends. {{len .Friends}} of them are:
+      {{index .Friends 0}}, and
+      {{index .Friends 1}},
+      </p>
 </body>
 </html>
