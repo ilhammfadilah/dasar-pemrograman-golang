@@ -13,6 +13,8 @@ type M map[string]interface{}
 func main() {
 	r := echo.New()
 
+	r.Static("/static", "assets")
+
 	r.GET("/", func(ctx echo.Context) error {
 		data := "hello from index"
 		return ctx.String(http.StatusOK, data)
