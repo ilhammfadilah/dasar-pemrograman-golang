@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"strings"
 
 	"github.com/labstack/echo"
 )
@@ -44,6 +45,14 @@ func main() {
 		message := ctx.Param("*")
 		data := fmt.Sprintf("assalamulaikum %s pesan: %s\n", name, message)
 
+		return ctx.String(http.StatusOK, data)
+	})
+
+	// parsing form data
+	r.POST("/page4", func(ctx echo.Context) error {
+		name := ctx.FormValue("name")
+		message := ctx.FormValue("message")
+		data := fmt.Sprintf("Hello %s, I have message for you: %s", name, strings.Replace(message, "/", "", 1))
 		return ctx.String(http.StatusOK, data)
 	})
 
