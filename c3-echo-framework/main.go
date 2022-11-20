@@ -31,9 +31,18 @@ func main() {
 	// })
 
 	// parsing url path param
-	r.GET("/page2/:name", func(ctx echo.Context) error {
+	// r.GET("/page2/:name", func(ctx echo.Context) error {
+	// 	name := ctx.Param("name")
+	// 	data := fmt.Sprintf("assalamulaikum %s\n", name)
+
+	// 	return ctx.String(http.StatusOK, data)
+	// })
+
+	// parsing url path dan seterusnya
+	r.GET("/page3/:name/*", func(ctx echo.Context) error {
 		name := ctx.Param("name")
-		data := fmt.Sprintf("assalamulaikum %s\n", name)
+		message := ctx.Param("*")
+		data := fmt.Sprintf("assalamulaikum %s pesan: %s\n", name, message)
 
 		return ctx.String(http.StatusOK, data)
 	})
