@@ -62,6 +62,11 @@ func main() {
 			}
 		}
 
+		errPage := fmt.Sprintf("%d.html", report.Code)
+		if err := c.File(errPage); err != nil {
+			c.HTML(report.Code, "Errrooorrr")
+		}
+
 		c.Logger().Error(report)
 		c.JSON(report.Code, report)
 	}
