@@ -13,6 +13,7 @@ func main() {
 	// middleware here
 	e.Use(MiddlewareOne)
 	e.Use(MiddlewareTwo)
+	e.Use(echo.WrapMiddleware(MiddlewareThree))
 
 	e.GET("/index", func(c echo.Context) (err error) {
 		fmt.Println("threeee!")
@@ -35,4 +36,11 @@ func MiddlewareTwo(next echo.HandlerFunc) echo.HandlerFunc {
 		fmt.Println("middleware two")
 		return next(c)
 	}
+}
+
+func MiddlewareThree(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println("middleware three")
+		next.ServeHTTP(w, r)
+	})
 }
