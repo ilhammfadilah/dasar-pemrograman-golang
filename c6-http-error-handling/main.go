@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/go-playground/validator"
@@ -43,6 +44,24 @@ func main() {
 		if !ok {
 			report = echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 		}
+
+		if castedObject, ok := err.(validator.ValidationErrors); ok {
+			for _, err := range castedObject {
+				switch err.Tag() {
+				case "required":
+					report.Message = fmt.Sprintf("%s tidak boleh kosong", err.Field())
+				case "email":
+					report.Message = fmt.Sprintf("%s tidak valid", err.Field())
+				case "gte":
+					report.Message = fmt.Sprintf("%s harus lebih dari / sama dengan %s", err.Field(), err.Param())
+				case "lte":
+					report.Message = fmt.Sprintf("%s harus lebih kecil / sama dengan %s", err.Field(), err.Param())
+				}
+
+				break
+			}
+		}
+
 		c.Logger().Error(report)
 		c.JSON(report.Code, report)
 	}
