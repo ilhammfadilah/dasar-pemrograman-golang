@@ -1,5 +1,6 @@
 {
   "appNmae": "Simple App",
+  "appDesctiotion": "simple command line app",
 
   "server": {
     "port": 9000
