@@ -1,0 +1,7 @@
+{
+  "appNmae": "Simple App",
+
+  "server": {
+    "port": 9000
+  }
+}
