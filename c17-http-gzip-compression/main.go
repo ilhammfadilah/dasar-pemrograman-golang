@@ -10,7 +10,7 @@ func main() {
 	mux := new(http.ServeMux)
 
 	mux.HandleFunc("/image", func(w http.ResponseWriter, r *http.Request) {
-		f, err := os.Open("sample.jpg")
+		f, err := os.Open("sample.png")
 		if f != nil {
 			defer f.Close()
 		}
@@ -25,9 +25,9 @@ func main() {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
 
-		server := new(http.Server)
-		server.Addr = ":9000"
-		server.Handler = mux
-		server.ListenAndServe()
 	})
+	server := new(http.Server)
+	server.Addr = ":9000"
+	server.Handler = mux
+	server.ListenAndServe()
 }
