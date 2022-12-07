@@ -36,6 +36,31 @@ func main() {
 		xlsx.SetCellValue(sheet1Name, fmt.Sprintf("C%d", i+2), each["Age"])
 	}
 
+	sheet2Name := "Sheet Two"
+	sheetIndex := xlsx.NewSheet(sheet2Name)
+	xlsx.SetActiveSheet(sheetIndex)
+
+	xlsx.SetCellValue(sheet2Name, "A1", "Hello")
+	xlsx.MergeCell(sheet2Name, "A1", "B1")
+
+	style, err := xlsx.NewStyle(`{
+			"font": {
+				"bold": true,
+				"size": 36
+			},
+			"fill": {
+				"type": "pattern",
+				"color": ["#E0EBF5"],
+				"pattern": 1
+			}
+		}`)
+
+	if err != nil {
+		log.Fatal("ERROR", err.Error())
+	}
+
+	xlsx.SetCellStyle(sheet2Name, "A1", "A1", style)
+
 	err = xlsx.SaveAs("./file1.xlsx")
 	if err != nil {
 		fmt.Println(err)
